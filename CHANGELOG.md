@@ -1,5 +1,153 @@
 # Change Log for Puppet Module locp-cassandra
 
+##2016-10-29 - Release 2.1.0 ([diff](https://github.com/locp/cassandra/compare/2.0.2...2.1.0))
+
+### Summary
+
+A mixture of new features, a new style of documentation and other
+improvements.  Also ran the [Sonar-Puppet](https://github.com/iwarapter/sonar-puppet)
+plugin against the code to improve the code quality.
+
+### Features
+
+* The following facts are now available:
+  * cassandramajorversion
+  * cassandraminorversion
+  * cassandrapatchversion
+  * cassandrarelease
+* The following attributes are now available:
+  * cassandra::commitlog_directory
+  * cassandra::commitlog_directory_mode
+  * cassandra::data_file_directories
+  * cassandra::data_file_directories_mode
+  * cassandra::hints_directory
+  * cassandra::hints_directory_mode
+  * cassandra::saved_caches_directory
+  * cassandra::saved_caches_directory_mode
+  * cassandra::systemctl
+
+### Bugfixes
+
+* Resolved all issues identified by Sonar-Puppet from 38 (2 major,
+  36 minor).  In doing so, this reduced the technical debt ration
+  from 0.9% to 0.0%.
+
+### Improvements
+
+* The reference documentation is now processed via 
+  http://locp.github.io/cassandra
+* Made a start on refactoring the spec/unit tests so that there is less
+  duplication of code.
+
+##2016-10-12 - Release 2.0.2 ([diff](https://github.com/locp/cassandra/compare/2.0.1...2.0.2))
+
+### Summary
+
+This is a non-functional patch release that fixes some issues in documentation, and fixes some
+bugs and makes some improvements in our testing framework.
+
+### Improvements
+
+* Ensure there is a framework for supporting the legacy 1.X.Y. module until the end of 2016.
+* A more obvious test rig for the beaker/acceptance tests on TravisCI.
+
+### Bugfixes
+
+* Corrected misleading documentation.
+* Ensure legacy test builds still work against Ruby 1.9.3.
+* Corrected deprecated tags in the module metadata.
+
+##2016-10-01 - Release 2.0.1 ([diff](https://github.com/locp/cassandra/compare/2.0.0...2.0.1))
+
+### Summary
+
+A non-functional release containing some improvements and documentation corrections.
+
+### Improvements
+
+* Corrected some out of date documentation.
+* Removed some deprecated files.
+* Regained 100% spec test coverage.
+
+##2016-09-29 - Release 2.0.0 ([diff](https://github.com/locp/cassandra/compare/1.26.0...2.0.0))
+
+### Summary
+
+This is a major release and will more than likely break your existing
+manifest until you alter your code.  Please see the
+[Upgrading](https://github.com/locp/cassandra/tree/release/274/v2.0.0#upgrading)
+section of the README for further details.
+
+* The method of passing parameters to Cassandra has been made more flexible.
+* Support for Ubuntu 16.04.
+* Changes to how `service_ensure` is handled.
+* `cassandra::file` is now a define, not a class (as it should have been).
+
+##2016-10-08 - Release 1.26.0 ([diff](https://github.com/locp/cassandra/compare/1.25.2...1.26.0))
+
+# Improvements
+* The `cassandra::seeds` paramater can now be provided as an array or as a string.
+
+# Bugfixes
+* Ensure legacy builds still work on TravisCI.
+
+##2016-09-03 - Release 1.25.2 ([diff](https://github.com/locp/cassandra/compare/1.25.1...1.25.2))
+
+### Summary
+
+The `service_systemd` attribute is now deprecated for the `cassandra`,
+`cassandra::datastax_agent` and `cassandra::opscenter` classes.  See
+https://github.com/locp/cassandra/wiki/DEP-020 for more details.
+
+##2016-08-14 - Release 1.25.1 ([diff](https://github.com/locp/cassandra/compare/1.25.0...1.25.1))
+
+### Summary
+
+Bugfix to ensure that the name of the PID file for the DataStax Agent service
+matches with the service name.
+
+##2016-07-17 - Release 1.25.0 ([diff](https://github.com/locp/cassandra/compare/1.24.3...1.25.0))
+
+### Summary
+
+A feature release.
+
+### Features
+
+* The `cassandra` class now has a `disk_access_mode` attribute.
+
+##2016-06-26 - Release 1.24.3 ([diff](https://github.com/locp/cassandra/compare/1.24.2...1.24.3))
+
+### Summary
+
+A couple of non-functional bug fixes.
+
+### Bugfixes
+
+* The new version of RuboCop flagged code changes required in the Vagrantfile.
+* The new version of Puppet Lint flagged code changes required in cassandra::java.
+
+##2016-06-20 - Release 1.24.2 ([diff](https://github.com/locp/cassandra/compare/1.24.1...1.24.2))
+
+### Summary
+
+A non-functional bug fix.
+
+### Bugfixes
+
+* The release of the specinfra gem (2.59.1) caused problems with our build.  Pinned now to 2.59.0.
+
+##2016-06-18 - Release 1.24.1 ([diff](https://github.com/locp/cassandra/compare/1.24.0...1.24.1))
+
+### Summary
+
+Really only affects CentOS 7 as all the other supported operating systems do
+not require the systemd file to be installed.
+
+### Bugfixes
+
+* Change the way that systemd shuts Cassandra down.
+
 ##2015-05-25 - Release 1.24.0 ([diff](https://github.com/locp/cassandra/compare/1.23.1...1.24.0))
 
 ### Summary
