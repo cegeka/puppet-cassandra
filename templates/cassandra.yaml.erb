@@ -2,4 +2,10 @@
 # overwritten.  If you see that the YAML indentation looks somewhat strange,
 # don't worry, please see the following ticker for more details.
 # https://tickets.puppetlabs.com/browse/PUP-3120
-<%= @merged_settings.sort.to_yaml() %>
+---
+<%- new_hash = {} -%>
+<%- @merged_settings.keys.sort.each do |key| -%>
+  <%- new_hash[key] =  @merged_settings[key] -%>
+  <%= new_hash.to_yaml.gsub(/---/,'') -%>
+  <%- new_hash = {} -%>
+<%- end -%>
