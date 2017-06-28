@@ -1,6 +1,125 @@
-# Change Log for Puppet Module locp-cassandra
+# Change Log
 
-##2016-10-29 - Release 2.1.0 ([diff](https://github.com/locp/cassandra/compare/2.0.2...2.1.0))
+## [2.5.0](https://github.com/locp/cassandra/tree/2.5.0) (2017-05-31)
+[Full Changelog](https://github.com/locp/cassandra/compare/2.4.1...2.5.0)
+
+**Implemented enhancements:**
+
+- Integration with github\_changelog\_generator [\#389](https://github.com/locp/cassandra/pull/389) ([dallinb](https://github.com/dallinb))
+
+**Fixed bugs:**
+
+- Tests failing for CentOS 6 on "Create schema for 2.1" [\#392](https://github.com/locp/cassandra/issues/392)
+
+**Closed issues:**
+
+- Rubocop failing tests since upgrade from 0.48.1 to 0.49.0 [\#391](https://github.com/locp/cassandra/issues/391)
+
+**Merged pull requests:**
+
+- Switch to role management instead of user one [\#388](https://github.com/locp/cassandra/pull/388) ([SergK](https://github.com/SergK))
+
+## 2017-04-24 - Release 2.4.1 ([diff](https://github.com/locp/cassandra/compare/2.4.0...2.4.1))
+
+### Summary
+
+A non-functional release of improvements.
+
+### Improvements
+
+* A refactoring and extension of the acceptance tests.
+* Migrated from version 1.0 to 2.0 of the CircleCI API.
+
+## 2017-03-30 - Release 2.4.0 ([diff](https://github.com/locp/cassandra/compare/2.3.0...2.4.0))
+
+### Summary
+
+* Added the `cassandra::dse` class to 2.X.Y of the module.
+* Added the new `cassandra::apache_repo` class.
+* Minor bug fixes and improvements.
+
+## 2017-02-28 - Release 1.27.0 ([diff](https://github.com/locp/cassandra/compare/1.26.1...1.27.0))
+
+### Summary
+
+Add the `cassandra::dse` class.
+
+## 2017-01-21 - Release 2.3.0 ([diff](https://github.com/locp/cassandra/compare/2.2.1...2.3.0))
+
+New attribute to `::cassandra` class:
+
+* `baseline_settings`
+
+New defined types:
+
+* `cassandra::system::swapoff`
+* `cassandra::system::sysctl`
+* `cassandra::system::transparent_hugepage`
+
+## 2016-12-08 - Release 2.2.1 ([diff](https://github.com/locp/cassandra/compare/2.2.0...2.2.1))
+
+### Summary
+
+Non-functional improvements and some documentation fixes.
+
+### Improvements
+
+* All beaker spec tests have been migrated from AWS/EC2 to Docker.
+* Installed Python 2.7 onto the CentOS 6 docker image allowing the full test
+  suite to be run against that operating system.
+* Some documentation improvements and fixed some typos.
+* The spec tests will now fail if there is not 100% coverage.
+
+## 2016-12-01 - Release 2.2.0 ([diff](https://github.com/locp/cassandra/compare/2.1.2...2.2.0))
+
+### Summary
+
+At long last we have a defined type for handling permissions (something that
+we have been promising since May).  Added some more facts for assisting
+in JVM tuning.  Also fixed an error that was happening when attempting to
+build the project.
+
+### Features
+
+* Added the `permissions` attribute to the `cassandra::schema` class.
+* Added the `cassandra::schema::permission`
+
+### Bugfixes
+
+* Some refactoring of the ruby code since the release of Rubocop 0.46.0 which
+  was failing code that previously had passed OK.
+
+## 2016-11-02 - Release 2.1.2 ([diff](https://github.com/locp/cassandra/compare/2.1.1...2.1.2))
+
+### Summary
+
+Basically a non-functional release to reduce some of the technical debt
+from the 2.0.0 release.  Also some minor improvements to the documentation.
+
+## 2016-11-19 - Release 1.26.1 ([diff](https://github.com/locp/cassandra/compare/1.26.0...1.26.1))
+
+### Summary
+
+Retro-fitted a bug that was fixed in 2.1.1 into the 1.X.Y version of the module.
+
+### Bugfixes
+
+* A hotfix for a bug in `cassandra::schema` that has been around since version 1.18.0 of this
+  module.
+
+## 2016-11-02 - Release 2.1.1 ([diff](https://github.com/locp/cassandra/compare/2.1.0...2.1.1))
+
+### Summary
+
+A hotfix for a bug in `cassandra::schema` that has been around since version 1.18.0 of this
+module.
+
+### Bugfixes
+
+* Fixed a bug where cql_types would not be created unless keyspaces were also provided.
+* Fixed a minor typo in the README.
+
+## 2016-10-29 - Release 2.1.0 ([diff](https://github.com/locp/cassandra/compare/2.0.2...2.1.0))
 
 ### Summary
 
@@ -34,12 +153,12 @@ plugin against the code to improve the code quality.
 
 ### Improvements
 
-* The reference documentation is now processed via 
+* The reference documentation is now processed via
   http://locp.github.io/cassandra
 * Made a start on refactoring the spec/unit tests so that there is less
   duplication of code.
 
-##2016-10-12 - Release 2.0.2 ([diff](https://github.com/locp/cassandra/compare/2.0.1...2.0.2))
+## 2016-10-12 - Release 2.0.2 ([diff](https://github.com/locp/cassandra/compare/2.0.1...2.0.2))
 
 ### Summary
 
@@ -57,7 +176,15 @@ bugs and makes some improvements in our testing framework.
 * Ensure legacy test builds still work against Ruby 1.9.3.
 * Corrected deprecated tags in the module metadata.
 
-##2016-10-01 - Release 2.0.1 ([diff](https://github.com/locp/cassandra/compare/2.0.0...2.0.1))
+## 2016-10-08 - Release 1.26.0 ([diff](https://github.com/locp/cassandra/compare/1.25.2...1.26.0))
+
+### Improvements
+* The `cassandra::seeds` paramater can now be provided as an array or as a string.
+
+# Bugfixes
+* Ensure legacy builds still work on TravisCI.
+
+## 2016-10-01 - Release 2.0.1 ([diff](https://github.com/locp/cassandra/compare/2.0.0...2.0.1))
 
 ### Summary
 
@@ -69,7 +196,7 @@ A non-functional release containing some improvements and documentation correcti
 * Removed some deprecated files.
 * Regained 100% spec test coverage.
 
-##2016-09-29 - Release 2.0.0 ([diff](https://github.com/locp/cassandra/compare/1.26.0...2.0.0))
+## 2016-09-29 - Release 2.0.0 ([diff](https://github.com/locp/cassandra/compare/1.26.0...2.0.0))
 
 ### Summary
 
@@ -83,15 +210,7 @@ section of the README for further details.
 * Changes to how `service_ensure` is handled.
 * `cassandra::file` is now a define, not a class (as it should have been).
 
-##2016-10-08 - Release 1.26.0 ([diff](https://github.com/locp/cassandra/compare/1.25.2...1.26.0))
-
-# Improvements
-* The `cassandra::seeds` paramater can now be provided as an array or as a string.
-
-# Bugfixes
-* Ensure legacy builds still work on TravisCI.
-
-##2016-09-03 - Release 1.25.2 ([diff](https://github.com/locp/cassandra/compare/1.25.1...1.25.2))
+## 2016-09-03 - Release 1.25.2 ([diff](https://github.com/locp/cassandra/compare/1.25.1...1.25.2))
 
 ### Summary
 
@@ -99,14 +218,14 @@ The `service_systemd` attribute is now deprecated for the `cassandra`,
 `cassandra::datastax_agent` and `cassandra::opscenter` classes.  See
 https://github.com/locp/cassandra/wiki/DEP-020 for more details.
 
-##2016-08-14 - Release 1.25.1 ([diff](https://github.com/locp/cassandra/compare/1.25.0...1.25.1))
+## 2016-08-14 - Release 1.25.1 ([diff](https://github.com/locp/cassandra/compare/1.25.0...1.25.1))
 
 ### Summary
 
 Bugfix to ensure that the name of the PID file for the DataStax Agent service
 matches with the service name.
 
-##2016-07-17 - Release 1.25.0 ([diff](https://github.com/locp/cassandra/compare/1.24.3...1.25.0))
+## 2016-07-17 - Release 1.25.0 ([diff](https://github.com/locp/cassandra/compare/1.24.3...1.25.0))
 
 ### Summary
 
@@ -116,7 +235,7 @@ A feature release.
 
 * The `cassandra` class now has a `disk_access_mode` attribute.
 
-##2016-06-26 - Release 1.24.3 ([diff](https://github.com/locp/cassandra/compare/1.24.2...1.24.3))
+## 2016-06-26 - Release 1.24.3 ([diff](https://github.com/locp/cassandra/compare/1.24.2...1.24.3))
 
 ### Summary
 
@@ -127,7 +246,7 @@ A couple of non-functional bug fixes.
 * The new version of RuboCop flagged code changes required in the Vagrantfile.
 * The new version of Puppet Lint flagged code changes required in cassandra::java.
 
-##2016-06-20 - Release 1.24.2 ([diff](https://github.com/locp/cassandra/compare/1.24.1...1.24.2))
+## 2016-06-20 - Release 1.24.2 ([diff](https://github.com/locp/cassandra/compare/1.24.1...1.24.2))
 
 ### Summary
 
@@ -137,7 +256,7 @@ A non-functional bug fix.
 
 * The release of the specinfra gem (2.59.1) caused problems with our build.  Pinned now to 2.59.0.
 
-##2016-06-18 - Release 1.24.1 ([diff](https://github.com/locp/cassandra/compare/1.24.0...1.24.1))
+## 2016-06-18 - Release 1.24.1 ([diff](https://github.com/locp/cassandra/compare/1.24.0...1.24.1))
 
 ### Summary
 
@@ -148,7 +267,7 @@ not require the systemd file to be installed.
 
 * Change the way that systemd shuts Cassandra down.
 
-##2015-05-25 - Release 1.24.0 ([diff](https://github.com/locp/cassandra/compare/1.23.1...1.24.0))
+## 2015-05-25 - Release 1.24.0 ([diff](https://github.com/locp/cassandra/compare/1.23.1...1.24.0))
 
 ### Summary
 
@@ -172,7 +291,7 @@ A Debian-centric release.  Debian 8 is now supported and a workaround for
 
 * Debian 8 is now part of the acceptance testing release process.
 
-##2016-05-10 - Release 1.23.1 ([diff](https://github.com/locp/cassandra/compare/1.23.0...1.23.1))
+## 2016-05-10 - Release 1.23.1 ([diff](https://github.com/locp/cassandra/compare/1.23.0...1.23.1))
 
 ### Summary
 
@@ -183,7 +302,7 @@ not users of the module.
 
 * Rubocop 0.4.0 is stricter so implemented changes that were flagged by it.
 
-##2016-05-07 - Release 1.23.0 ([diff](https://github.com/locp/cassandra/compare/1.22.1...1.23.0))
+## 2016-05-07 - Release 1.23.0 ([diff](https://github.com/locp/cassandra/compare/1.22.1...1.23.0))
 
 ### Summary
 
@@ -204,7 +323,7 @@ A couple of new features, a non-functional improvement and a bugfix.
 
 * Improved how fast the beaker/acceptance tests are run from TravisCI.
 
-##2016-05-03 - Release 1.22.1 ([diff](https://github.com/locp/cassandra/compare/1.22.0...1.22.1))
+## 2016-05-03 - Release 1.22.1 ([diff](https://github.com/locp/cassandra/compare/1.22.0...1.22.1))
 
 ### Summary
 
@@ -220,7 +339,7 @@ A non-functional release for a minor improvement and a bug fix.
 * Test coverage in Coveralls is now back at 100%
   (https://coveralls.io/github/locp/cassandra).
 
-##2016-04-25 - Release 1.22.0 ([diff](https://github.com/locp/cassandra/compare/1.21.0...1.22.0))
+## 2016-04-25 - Release 1.22.0 ([diff](https://github.com/locp/cassandra/compare/1.21.0...1.22.0))
 
 ### Summary
 
@@ -234,7 +353,7 @@ Two new features.
 * Allow the manipulation of the environment file with the new class
   cassandra::env.
 
-##2016-04-20 - Release 1.21.0 ([diff](https://github.com/locp/cassandra/compare/1.20.0...1.21.0))
+## 2016-04-20 - Release 1.21.0 ([diff](https://github.com/locp/cassandra/compare/1.20.0...1.21.0))
 
 ### Summary
 
@@ -259,7 +378,7 @@ acceptance tests to be run against Cassandra 3.
 
 * Acceptance testing of Cassandra 3.
 
-##2016-04-13 - Release 1.20.0 ([diff](https://github.com/locp/cassandra/compare/1.19.0...1.20.0))
+## 2016-04-13 - Release 1.20.0 ([diff](https://github.com/locp/cassandra/compare/1.19.0...1.20.0))
 
 ### Summary
 
@@ -270,7 +389,7 @@ A minor release for client requirements.
 * Added the compaction_large_partition_warning_threshold_mb and
   memtable_allocation_type attributes to the cassandra class.
 
-##2016-04-06 - Release 1.19.0 ([diff](https://github.com/locp/cassandra/compare/1.18.1...1.19.0))
+## 2016-04-06 - Release 1.19.0 ([diff](https://github.com/locp/cassandra/compare/1.18.1...1.19.0))
 
 ### Summary
 
@@ -288,7 +407,7 @@ A new template attribute and a couple of bug fixes.
   from the supported operating systems has been identified as being required
   to use systemd.
 
-##2016-03-27 - Release 1.18.1 ([diff](https://github.com/locp/cassandra/compare/1.18.0...1.18.1))
+## 2016-03-27 - Release 1.18.1 ([diff](https://github.com/locp/cassandra/compare/1.18.0...1.18.1))
 
 ### Summary
 
@@ -306,7 +425,7 @@ Bug fixes and some minor and non-functional improvements.
 * Made some changes to the documentation to better reflect the new
   functionality delivered in 1.18.0.
 
-##2016-03-26 - Release 1.18.0 ([diff](https://github.com/locp/cassandra/compare/1.17.0...1.18.0))
+## 2016-03-26 - Release 1.18.0 ([diff](https://github.com/locp/cassandra/compare/1.17.0...1.18.0))
 
 ### Summary
 
@@ -345,7 +464,7 @@ and pipe-line improvements and a couple of bug fixes.
   2.0.0.
 
 
-##2016-03-22 - Release 1.17.0 ([diff](https://github.com/locp/cassandra/compare/1.16.0...1.17.0))
+## 2016-03-22 - Release 1.17.0 ([diff](https://github.com/locp/cassandra/compare/1.16.0...1.17.0))
 
 ### Summary
 
@@ -355,7 +474,7 @@ Another small change that is an emergency requirement for a client.
 
 * Added the `storage_keyspace` attribute to the cassandra::datastax_agent class.
 
-##2016-03-15 - Release 1.16.0 ([diff](https://github.com/locp/cassandra/compare/1.15.1...1.16.0))
+## 2016-03-15 - Release 1.16.0 ([diff](https://github.com/locp/cassandra/compare/1.15.1...1.16.0))
 
 ### Summary
 
@@ -369,7 +488,7 @@ A smaller release than usual, but containing changes required for a client.
 
 * The **address.yaml** file for the DataStax agent is now owned by the cassandra user.
 
-##2016-03-11 - Release 1.15.1 ([diff](https://github.com/locp/cassandra/compare/1.15.0...1.15.1))
+## 2016-03-11 - Release 1.15.1 ([diff](https://github.com/locp/cassandra/compare/1.15.0...1.15.1))
 
 ### Summary
 
@@ -379,7 +498,7 @@ A small improvement.
 
 * Clarified CQL and Python versions.
 
-##2016-03-10 - Release 1.15.0 ([diff](https://github.com/locp/cassandra/compare/1.14.2...1.15.0))
+## 2016-03-10 - Release 1.15.0 ([diff](https://github.com/locp/cassandra/compare/1.14.2...1.15.0))
 
 ### Summary
 
@@ -420,7 +539,7 @@ pipeline and new features.
 * Updated the AWS AMI for the TravisCI/AWS acceptance testing to hopefully
   speed up builds a bit.
 
-##2016-02-29 - Release 1.14.2 ([diff](https://github.com/locp/cassandra/compare/1.14.1...1.14.2))
+## 2016-02-29 - Release 1.14.2 ([diff](https://github.com/locp/cassandra/compare/1.14.1...1.14.2))
 
 ### Summary
 
@@ -430,7 +549,7 @@ A small bugfix release.
 
 * Removed `Restart=always` from the Systemd configuration files.
 
-##2016-02-27 - Release 1.14.1 ([diff](https://github.com/locp/cassandra/compare/1.14.0...1.14.1))
+## 2016-02-27 - Release 1.14.1 ([diff](https://github.com/locp/cassandra/compare/1.14.0...1.14.1))
 
 ### Summary
 
@@ -453,7 +572,7 @@ A non-functional release of improvements and a bugfix.
   * The automation of what had previously been manual steps when building a
     release.
 
-##2016-02-19 - Release 1.14.0 ([diff](https://github.com/locp/cassandra/compare/1.13.0...1.14.0))
+## 2016-02-19 - Release 1.14.0 ([diff](https://github.com/locp/cassandra/compare/1.13.0...1.14.0))
 
 ### Summary
 
@@ -471,7 +590,7 @@ A minor release with one of each of a feature, bug fix and improvement.
 
 * Refactored the contributors section of the README.
 
-##2016-02-14 - Release 1.13.0 ([diff](https://github.com/locp/cassandra/compare/1.12.2...1.13.0))
+## 2016-02-14 - Release 1.13.0 ([diff](https://github.com/locp/cassandra/compare/1.12.2...1.13.0))
 
 ### Summary
 
@@ -505,7 +624,7 @@ bug fixes and some non-functional improvements.
   attributes as that is more Puppet-like.
 * Changed the format of the contributers section.
 
-##2016-02-12 - Release 1.12.2 ([diff](https://github.com/locp/cassandra/compare/1.12.1...1.12.2))
+## 2016-02-12 - Release 1.12.2 ([diff](https://github.com/locp/cassandra/compare/1.12.1...1.12.2))
 
 ### Summary
 
@@ -517,7 +636,7 @@ More bug fixes.
   service and reporting all service stops as failures, regardless of
   if they were or not.
 
-##2016-02-08 - Release 1.12.1 ([diff](https://github.com/locp/cassandra/compare/1.12.0...1.12.1))
+## 2016-02-08 - Release 1.12.1 ([diff](https://github.com/locp/cassandra/compare/1.12.0...1.12.1))
 
 ### Summary
 
@@ -535,7 +654,7 @@ This is a non-functional release.  Some bug fixes and release improvements.
 * Nightly build created so that issues similar to those found in issues
   #136 and #157 can be caught quicker.
 
-##2016-01-27 - Release 1.12.0 ([diff](https://github.com/locp/cassandra/compare/1.11.0...1.12.0))
+## 2016-01-27 - Release 1.12.0 ([diff](https://github.com/locp/cassandra/compare/1.11.0...1.12.0))
 
 ### Summary
 
@@ -554,7 +673,7 @@ A new feature in the cassandra::datastax_agent class, a minor bug fix and integr
 * In addition to TravisCI, the build process is now integrated with
   [CircleCI](https://circleci.com/gh/locp/cassandra).
 
-##2016-01-01 - Release 1.11.0 ([diff](https://github.com/locp/cassandra/compare/1.10.0...1.11.0))
+## 2016-01-01 - Release 1.11.0 ([diff](https://github.com/locp/cassandra/compare/1.10.0...1.11.0))
 
 ### Summary
 
@@ -573,7 +692,7 @@ New features added to the main class.  Also some non-functional improvements.
 * The test coverage in release 1.10.0 dropped to 99.09%.  Got it back to
   100% in this release.
 
-##2015-12-19 - Release 1.10.0 ([diff](https://github.com/locp/cassandra/compare/1.9.2...1.10.0))
+## 2015-12-19 - Release 1.10.0 ([diff](https://github.com/locp/cassandra/compare/1.9.2...1.10.0))
 
 ### Summary
 
@@ -597,7 +716,7 @@ A feature release with minor improvements.
 
   To co-exist with file resources with the same name.
 
-##2015-11-21 - Release 1.9.2 ([diff](https://github.com/locp/cassandra/compare/1.9.1...1.9.2))
+## 2015-11-21 - Release 1.9.2 ([diff](https://github.com/locp/cassandra/compare/1.9.1...1.9.2))
 
 ### Summary
 
@@ -609,7 +728,7 @@ A bug fix release that deals with some problems with Cassandra 3.
   installing the dsc22 package.
 * Also reverted the project home to the GitHub project page.
 
-##2015-11-09 - Release 1.9.1 ([diff](https://github.com/locp/cassandra/compare/1.9.0...1.9.1))
+## 2015-11-09 - Release 1.9.1 ([diff](https://github.com/locp/cassandra/compare/1.9.0...1.9.1))
 
 ### Summary
 
@@ -620,7 +739,7 @@ A bug fix release.
 * The default value for the permissions mode of the Cassandra configuration
   file were far too open.  Changed from 0666 to 0644.
 
-##2015-10-25 - Release 1.9.0 ([diff](https://github.com/locp/cassandra/compare/1.8.1...1.9.0))
+## 2015-10-25 - Release 1.9.0 ([diff](https://github.com/locp/cassandra/compare/1.8.1...1.9.0))
 
 ### Summary
 
@@ -663,7 +782,7 @@ change log documentation.
   refreshes of the Cassandra service due to non-functional changes to the
   configuration file.
 
-##2015-10-14 - Release 1.8.1 ([diff](https://github.com/locp/cassandra/compare/1.8.0...1.8.1))
+## 2015-10-14 - Release 1.8.1 ([diff](https://github.com/locp/cassandra/compare/1.8.0...1.8.1))
 
 ### Summary
 
@@ -674,7 +793,7 @@ A minor bug fix.
 * Fixed an edge case issue concerning users that may have been using the
   fail_on_non_supported_os before it was fixed in 1.8.0.
 
-##2015-10-06 - Release 1.8.0 ([diff](https://github.com/locp/cassandra/compare/1.7.1...1.8.0))
+## 2015-10-06 - Release 1.8.0 ([diff](https://github.com/locp/cassandra/compare/1.7.1...1.8.0))
 
 ### Summary
 
@@ -704,7 +823,7 @@ A minor bug fix that incorrctly gave a failed build status for the module.
 * Fixed a problem that was showing the status of the module build as an
   error since the release of the fog-google gem version 0.1.1.
 
-##2015-10-01 - Release 1.7.0 ([diff](https://github.com/locp/cassandra/compare/1.6.0...1.7.0))
+## 2015-10-01 - Release 1.7.0 ([diff](https://github.com/locp/cassandra/compare/1.6.0...1.7.0))
 
 ### Summary
 
@@ -740,7 +859,7 @@ The following non-functional improvements were implemented:
   be applied in a shorter time.  For the first time as well, they are
   visible on Travis.
 
-##2015-09-23 - Release 1.6.0 ([diff](https://github.com/locp/cassandra/compare/1.5.0...1.6.0))
+## 2015-09-23 - Release 1.6.0 ([diff](https://github.com/locp/cassandra/compare/1.5.0...1.6.0))
 
 ### Summary
 
@@ -759,7 +878,7 @@ non-functional improvements in the automated unit tests.
 
 * Uncovered resources in the unit testing are now tested.
 
-##2015-09-21 - Release 1.5.0 ([diff](https://github.com/locp/cassandra/compare/1.4.2...1.5.0))
+## 2015-09-21 - Release 1.5.0 ([diff](https://github.com/locp/cassandra/compare/1.4.2...1.5.0))
 
 ### Summary
 
@@ -808,7 +927,7 @@ cassandra.yaml file.
 
 * Clarity of changes per release in the change log (this document).
 
-##2015-09-15 - Release 1.4.2 ([diff](https://github.com/locp/cassandra/compare/1.4.1...1.4.2))
+## 2015-09-15 - Release 1.4.2 ([diff](https://github.com/locp/cassandra/compare/1.4.1...1.4.2))
 
 ### Summary
 
@@ -829,7 +948,7 @@ contributed pull request.
 * n/a
 
 
-##2015-09-15 - Release 1.4.1 ([diff](https://github.com/locp/cassandra/compare/1.4.0...1.4.1))
+## 2015-09-15 - Release 1.4.1 ([diff](https://github.com/locp/cassandra/compare/1.4.0...1.4.1))
 
 ### Summary
 
@@ -854,7 +973,7 @@ override the default behaviour of failing on a non-supported operating system.
 * Clarified the expectations of submitted contributions.
 * Unit test improvements.
 
-##2015-09-10 - Release 1.4.0 ([diff](https://github.com/locp/cassandra/compare/1.3.7...1.4.0))
+## 2015-09-10 - Release 1.4.0 ([diff](https://github.com/locp/cassandra/compare/1.3.7...1.4.0))
 
 * Ensured that directories specified in the directory attributes
   are controlled with file resources.
@@ -891,62 +1010,62 @@ override the default behaviour of failing on a non-supported operating system.
   * truncate_request_timeout_in_ms
   * write_request_timeout_in_ms
 
-##2015-09-08 - Release 1.3.7 ([diff](https://github.com/locp/cassandra/compare/1.3.6...1.3.7))
+## 2015-09-08 - Release 1.3.7 ([diff](https://github.com/locp/cassandra/compare/1.3.6...1.3.7))
 * Made the auto_bootstrap attribute available.
 
-##2015-09-03 - Release 1.3.6 ([diff](https://github.com/locp/cassandra/compare/1.3.5...1.3.6))
+## 2015-09-03 - Release 1.3.6 ([diff](https://github.com/locp/cassandra/compare/1.3.5...1.3.6))
 * Fixed a bug, now allowing the user to set the enabled state of the Cassandra
   service.
 * More cleaning up of the README and more links in that file to allow
   faster navigation.
-  
-##2015-09-01 - Release 1.3.5 ([diff](https://github.com/locp/cassandra/compare/1.3.4...1.3.5))
+
+## 2015-09-01 - Release 1.3.5 ([diff](https://github.com/locp/cassandra/compare/1.3.4...1.3.5))
 * Fixed a bug, now  allowing the user to set the running state of the
   Cassandra service.
 * More automated testing with spec tests.
 * A refactoring of the README.
 
-##2015-08-28 - Release 1.3.4 ([diff](https://github.com/locp/cassandra/compare/1.3.3...1.3.4))
+## 2015-08-28 - Release 1.3.4 ([diff](https://github.com/locp/cassandra/compare/1.3.3...1.3.4))
 * Minor corrections to the README.
 * The addition of the storage_cassandra_seed_hosts attribute to
   cassandra::opscenter::cluster_name which is part of a bigger part of
   work but is urgently require by a client.
 
-##2015-08-27 - Release 1.3.3 ([diff](https://github.com/locp/cassandra/compare/1.3.2...1.3.3))
+## 2015-08-27 - Release 1.3.3 ([diff](https://github.com/locp/cassandra/compare/1.3.2...1.3.3))
 * Corrected dependency version for puppetlabs-apt.
 
-##2015-08-26 - Release 1.3.2 ([diff](https://github.com/locp/cassandra/compare/1.3.1...1.3.2))
+## 2015-08-26 - Release 1.3.2 ([diff](https://github.com/locp/cassandra/compare/1.3.1...1.3.2))
 * Fixed bug in cassandra::opscenter::cluster_name.
 * Fixed code in cassandra::firewall_ports::rule to avoid deprecation
   warnings concerning the use of puppetlabs-firewall => port.
 * Added more examples to the README
 
-##2015-08-22 - Release 1.3.1 ([diff](https://github.com/locp/cassandra/compare/1.3.0...1.3.1))
+## 2015-08-22 - Release 1.3.1 ([diff](https://github.com/locp/cassandra/compare/1.3.0...1.3.1))
 This was mainly a non-functional change.  The biggest thing to say is that
 Debian 7 is now supported.
 
-##2015-08-19 - Release 1.3.0 ([diff](https://github.com/locp/cassandra/compare/1.2.0...1.3.0))
+## 2015-08-19 - Release 1.3.0 ([diff](https://github.com/locp/cassandra/compare/1.2.0...1.3.0))
 * Allow additional TCP ports to be specified for the host based firewall.
 * Fixed a problem where the client subnets were ignored by the firewall.
 * Added more automated testing.
 * Continued work on an ongoing improvement of the documentation.
 * Added the ability to set the DC and RACK in the snitch properties.
 
-##2015-08-10 - Release 1.2.0 ([diff](https://github.com/locp/cassandra/compare/1.1.0...1.2.0))
+## 2015-08-10 - Release 1.2.0 ([diff](https://github.com/locp/cassandra/compare/1.1.0...1.2.0))
 * Added the installation of Java Native Access (JNA) to cassandra::java
 * For DataStax Enterprise, allow the remote storage of metric data with
   cassandra::opscenter::cluster_name.
 
-##2015-08-03 - Release 1.1.0 ([diff](https://github.com/locp/cassandra/compare/1.0.1...1.1.0))
+## 2015-08-03 - Release 1.1.0 ([diff](https://github.com/locp/cassandra/compare/1.0.1...1.1.0))
 * Provided the cassandra::firewall_ports class.
 * All OpsCenter options are now configurable in opscenterd.conf.
 * ssl_storage_port is now configurable.
 
-##2015-07-27 - Release 1.0.1 ([diff](https://github.com/locp/cassandra/compare/1.0.0...1.0.1))
+## 2015-07-27 - Release 1.0.1 ([diff](https://github.com/locp/cassandra/compare/1.0.0...1.0.1))
 * Provided a workaround for
   [CASSANDRA-9822](https://issues.apache.org/jira/browse/CASSANDRA-9822).
 
-##2015-07-25 - Release 1.0.0 ([diff](https://github.com/locp/cassandra/compare/0.4.3...1.0.0))
+## 2015-07-25 - Release 1.0.0 ([diff](https://github.com/locp/cassandra/compare/0.4.3...1.0.0))
 * Changed the default installation from Cassandra 2.1 to 2.2.
 * Fixed a bug that arose when the cassandra config_path was set.
 * Created a workaround for
@@ -954,10 +1073,10 @@ Debian 7 is now supported.
 * Minor changes to the API (see the Upgrading section of the README).
 * Allow a basic installation of OpsCenter.
 
-##2015-07-18 - Release 0.4.3 ([diff](https://github.com/locp/cassandra/compare/0.4.2...0.4.3))
+## 2015-07-18 - Release 0.4.3 ([diff](https://github.com/locp/cassandra/compare/0.4.2...0.4.3))
 * Module dependency metadata was too strict.
 
-##2015-07-16 - Release 0.4.2 ([diff](https://github.com/locp/cassandra/compare/0.4.1...0.4.2))
+## 2015-07-16 - Release 0.4.2 ([diff](https://github.com/locp/cassandra/compare/0.4.1...0.4.2))
 
 * Some minor documentation changes.
 * Fixed a problem with the module metadata that caused Puppetfile issues.
@@ -965,13 +1084,13 @@ Debian 7 is now supported.
 * Removed the deprecated config and install classes.  These were private
   so there is no change to the API.
 
-##2015-07-14 - Release 0.4.1 ([diff](https://github.com/locp/cassandra/compare/0.4.0...0.4.1))
+## 2015-07-14 - Release 0.4.1 ([diff](https://github.com/locp/cassandra/compare/0.4.0...0.4.1))
 
 * Fixed a resource ordering problem in the cassandra::datastax class.
 * Tidied up the documentation a bit.
 * Some refactoring of the spec tests.
 
-##2015-07-12 - Release 0.4.0 ([diff](https://github.com/locp/cassandra/compare/0.3.0...0.4.0))
+## 2015-07-12 - Release 0.4.0 ([diff](https://github.com/locp/cassandra/compare/0.3.0...0.4.0))
 ### Summary
 
 * Some major changes to the API on how Java, the optional Cassandra tools and
@@ -983,7 +1102,7 @@ Debian 7 is now supported.
   for providing such a neat service.
 * More spec tests.
 
-##2015-06-27 - Release 0.3.0 ([diff](https://github.com/locp/cassandra/compare/0.2.2...0.3.0))
+## 2015-06-27 - Release 0.3.0 ([diff](https://github.com/locp/cassandra/compare/0.2.2...0.3.0))
 ### Summary
 
 * Slight changes to the API.  See the Upgrading section of the README file
@@ -995,7 +1114,7 @@ Debian 7 is now supported.
 * Some smarter handling of the differences between Ubuntu/Debian and RedHat
   derivatives.
 
-##2015-06-17 - Release 0.2.2 ([diff](https://github.com/locp/cassandra/compare/0.2.1...0.2.2))
+## 2015-06-17 - Release 0.2.2 ([diff](https://github.com/locp/cassandra/compare/0.2.1...0.2.2))
 ### Summary
 A non-functional change to change the following:
 
@@ -1003,15 +1122,18 @@ A non-functional change to change the following:
 * Implement automated testing.
 * Test on additional operating systems.
 
-##2015-05-28 - Release 0.2.1 ([diff](https://github.com/locp/cassandra/compare/0.2.0...0.2.1))
+## 2015-05-28 - Release 0.2.1 ([diff](https://github.com/locp/cassandra/compare/0.2.0...0.2.1))
 ### Summary
 A non-functional change to fix puppet-lint problems identified by Puppet
 Forge.
 
-##2015-05-28 - Release 0.2.0 ([diff](https://github.com/locp/cassandra/compare/0.1.0...0.2.0))
+## 2015-05-28 - Release 0.2.0 ([diff](https://github.com/locp/cassandra/compare/0.1.0...0.2.0))
 ### Summary
 Added more attributes and improved the module metadata.
 
-##2015-05-26 - Release 0.1.0
+## 2015-05-26 - Release 0.1.0
 ### Summary
 An initial release with **VERY** limited options.
+
+
+\* *This Change Log was automatically generated by [github_changelog_generator](https://github.com/skywinder/Github-Changelog-Generator)*
