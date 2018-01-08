@@ -667,3 +667,4 @@ page for project specific requirements.
 For a list of contributers see
 [CONTRIBUTING.md](https://github.com/locp/cassandra/blob/master/CONTRIBUTING.md)
 and https://github.com/locp/cassandra/graphs/contributors
+
