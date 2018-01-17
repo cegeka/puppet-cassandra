@@ -4,7 +4,7 @@ class cassandra::params {
   case $::osfamily {
     'Debian': {
       case $::operatingsystemmajrelease {
-        12.04: {
+        '12.04': {
           $net_ipv4_tcp_rmem = '4096 87380 16777216'
           $net_ipv4_tcp_wmem = '4096 65536 16777216'
         }
@@ -24,12 +24,12 @@ class cassandra::params {
     }
     'RedHat': {
       case $::operatingsystemmajrelease {
-        6: {
+        '6': {
           $net_ipv4_tcp_rmem = '4096 87380 16777216'
           $net_ipv4_tcp_wmem = '4096 65536 16777216'
           $sysctl_file = '/etc/sysctl.conf'
         }
-        7: {
+        '7': {
           $net_ipv4_tcp_rmem = '4096, 87380, 16777216'
           $net_ipv4_tcp_wmem = '4096, 65536, 16777216'
           $sysctl_file = '/etc/sysctl.d/10-cassandra.conf'
